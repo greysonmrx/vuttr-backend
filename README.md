@@ -15,9 +15,7 @@
 
 - **Express** — Fast, unopinionated, minimalist web framework for Node.js.
 - **BcryptJS** - Optimized bcrypt in plain JavaScript with zero dependencies.
-- **Express Async Errors** - A dead simple ES6 async/await support hack for ExpressJS.
 - **Json Web Token** - JsonWebToken implementation for Node.js.
-- **Multer** -  Node.js middleware for handling multipart/form-data.
 - **Typeorm** -  ORM for TypeScript and JavaScript.
 - **Jest** - Delightful JavaScript Testing.
 - **Swagger Ui** - Swagger UI is a collection of HTML, JavaScript, and CSS assets that dynamically generate beautiful documentation.
