@@ -15,7 +15,11 @@
 
 - **Express** — Fast, unopinionated, minimalist web framework for Node.js.
 - **BcryptJS** - Optimized bcrypt in plain JavaScript with zero dependencies.
+- **Tsyringe** - Lightweight dependency injection container for JavaScript/TypeScript.
 - **Json Web Token** - JsonWebToken implementation for Node.js.
+- **Celebrate** - A joi validation middleware for Express.
+- **PostgreSQL** - An open source database system.
+- **Docker** - A platform built for developers to build and run applications.
 - **Typeorm** -  ORM for TypeScript and JavaScript.
 - **Jest** - Delightful JavaScript Testing.
 - **Swagger Ui** - Swagger UI is a collection of HTML, JavaScript, and CSS assets that dynamically generate beautiful documentation.
