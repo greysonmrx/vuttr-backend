@@ -33,11 +33,11 @@ const devConfig = {
 const prodConfig = {
   name: 'default',
   type: 'postgres',
-  host: process.env.DB_HOST,
+  host: process.env.HEROKU_DB_HOST,
   port: 5432,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
+  username: process.env.HEROKU_DB_USER,
+  password: process.env.HEROKU_DB_PASS,
+  database: process.env.HEROKU_DB_NAME,
   entities: ['./dist/modules/**/infra/typeorm/entities/*.js'],
   migrations: ['./dist/shared/infra/typeorm/migrations/*.js'],
   cli: {
