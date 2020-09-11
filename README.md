@@ -4,10 +4,10 @@
 
 <p align="center">
   <a href="#rocket-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
+  <a href="#memo-getting-started">Getting started</a>
 </p>
 
-<div align="center">
+<div id="insomniaButton" align="center">
 <a href="https://insomnia.rest/run/?label=VUTTR&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fgreysonmrx%2Fvuttr-backend%2Fmaster%2F.github%2Finsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </div>
 
@@ -41,7 +41,7 @@ Import the `Insomnia.json` on Insomnia App or click on [Run in Insomnia](#insomn
 **Clone the project and access the folder**
 
 ```bash
-$ git clone https://github.com/EliasGcf/vuttr-backend.git
+$ git clone https://github.com/greysonmrx/vuttr-backend.git
 $ cd vuttr-backend
 ```
 
@@ -52,14 +52,15 @@ $ cd vuttr-backend
 $ yarn
 
 # Make a copy of '.env.example' to '.env'
-# and set with YOUR environment variables.
-# The aws variables do not need to be filled for dev environment
 $ cp .env.example .env
 
 # Create the instance of postgreSQL using docker
-$ docker run --name vuttr-postgres -e POSTGRES_USER=postgres \
-              -e POSTGRES_DB=vuttr -e POSTGRES_PASSWORD=docker \
-              -p 5432:5432 -d postgres
+$ docker run --name vuttr-postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+
+# Start container
+$ docker start vuttr-postgres
+
+# Now you need to create two databases: vuttr and vuttr-tests
 
 # Once the services are running, run the migrations
 $ yarn typeorm migration:run
