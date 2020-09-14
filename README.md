@@ -78,5 +78,6 @@ $ yarn dev:server
 ```
 
 To see the **documentation**, click here: [Documentation](http://localhost:3000/docs)<br />
+Or if you aren't running the API locally, click here: [Documentation](https://vuttr-backend-challange.herokuapp.com/docs)<br />
 
 Made with :hearts: by Greyson :wave: [See my linkedin](https://www.linkedin.com/in/greyson-mascarenhas-5a21ab1a2/)
