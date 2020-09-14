@@ -60,7 +60,7 @@ describe('Authentication', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Endereço de e-mail ou senha incorretos.'),
+        message: expect.stringMatching('Incorrect email/password combination.'),
       }),
     );
   });
@@ -81,7 +81,7 @@ describe('Authentication', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Endereço de e-mail ou senha incorretos.'),
+        message: expect.stringMatching('Incorrect email/password combination.'),
       }),
     );
   });
@@ -95,7 +95,7 @@ describe('Authentication', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'e-mail' não pode estar vazio"),
+        message: expect.stringMatching("The 'email' field mustn't be empty."),
       }),
     );
   });
@@ -110,7 +110,7 @@ describe('Authentication', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching('Insira um e-mail válido'),
+        message: expect.stringMatching("The 'email' field must be a valid email."),
       }),
     );
   });
@@ -124,7 +124,7 @@ describe('Authentication', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'senha' não pode estar vazio"),
+        message: expect.stringMatching("The 'password' field mustn't be empty."),
       }),
     );
   });
@@ -139,7 +139,7 @@ describe('Authentication', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'senha' tem que ter pelo menos 6 dígitos"),
+        message: expect.stringMatching("The 'password' length must be at least 6 characters long."),
       }),
     );
   });

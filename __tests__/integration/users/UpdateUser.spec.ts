@@ -65,7 +65,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Token não informado.'),
+        message: expect.stringMatching('Token not provided.'),
       }),
     );
   });
@@ -89,7 +89,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Token inválido.'),
+        message: expect.stringMatching('Invalid token.'),
       }),
     );
   });
@@ -115,7 +115,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Usuário não encontrado.'),
+        message: expect.stringMatching('User not found.'),
       }),
     );
   });
@@ -132,7 +132,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'nome' não pode estar vazio"),
+        message: expect.stringMatching("The 'name' field mustn't be empty."),
       }),
     );
   });
@@ -149,7 +149,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'e-mail' não pode estar vazio"),
+        message: expect.stringMatching("The 'email' field mustn't be empty."),
       }),
     );
   });
@@ -175,7 +175,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Este endereço de e-mail já está em uso. Tente outro.'),
+        message: expect.stringMatching('Email address already used.'),
       }),
     );
   });
@@ -193,7 +193,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching('Insira um e-mail válido'),
+        message: expect.stringMatching("The 'email' field must be a valid email."),
       }),
     );
   });
@@ -212,7 +212,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Você precisa informar a senha atual para criar uma nova.'),
+        message: expect.stringMatching('You must provide the current password to set a new password.'),
       }),
     );
   });
@@ -232,7 +232,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Senha incorreta.'),
+        message: expect.stringMatching('Incorrect password.'),
       }),
     );
   });
@@ -252,7 +252,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'senha' tem que ter pelo menos 6 dígitos"),
+        message: expect.stringMatching("The 'password' length must be at least 6 characters long."),
       }),
     );
   });
@@ -272,7 +272,7 @@ describe('Update user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'senha atual' tem que ter pelo menos 6 dígitos"),
+        message: expect.stringMatching("The 'current password' length must be at least 6 characters long."),
       }),
     );
   });

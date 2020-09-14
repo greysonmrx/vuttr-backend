@@ -71,6 +71,30 @@ describe('Update tool', () => {
     );
   });
 
+  it('should not be able to update a tool without a token', async () => {
+    const response = await request(app).put(`/tools/toolId`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject(
+      expect.objectContaining({
+        status: expect.stringMatching('error'),
+        message: expect.stringMatching('Token not provided.'),
+      }),
+    );
+  });
+
+  it('should not be able to update a tool with a invalid token', async () => {
+    const response = await request(app).put(`/tools/toolId`).set('Authorization', `Bearer invalid.token`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject(
+      expect.objectContaining({
+        status: expect.stringMatching('error'),
+        message: expect.stringMatching('Invalid token.'),
+      }),
+    );
+  });
+
   it('should not be able to update a tool with duplicate title', async () => {
     const { body } = await request(app)
       .post('/tools')
@@ -113,7 +137,7 @@ describe('Update tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Esta ferramenta já foi cadastrada.'),
+        message: expect.stringMatching('Tool already created.'),
       }),
     );
   });
@@ -134,7 +158,7 @@ describe('Update tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Ferramenta não encontrada.'),
+        message: expect.stringMatching('Tool not found.'),
       }),
     );
   });
@@ -155,7 +179,7 @@ describe('Update tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching('Insira uma ferramenta válida'),
+        message: expect.stringMatching("The 'toolId' must be a valid UUID."),
       }),
     );
   });
@@ -175,7 +199,7 @@ describe('Update tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'título' não pode estar vazio"),
+        message: expect.stringMatching("The 'title' field mustn't be empty."),
       }),
     );
   });
@@ -195,7 +219,7 @@ describe('Update tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'link' não pode estar vazio"),
+        message: expect.stringMatching("The 'link' field mustn't be empty."),
       }),
     );
   });
@@ -220,7 +244,7 @@ describe('Update tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'descrição' não pode estar vazio"),
+        message: expect.stringMatching("The 'description' field mustn't be empty."),
       }),
     );
   });

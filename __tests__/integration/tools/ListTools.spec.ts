@@ -86,6 +86,30 @@ describe('List tools', () => {
     expect(response.status).toBe(200);
   });
 
+  it('should not be able to list all tools without a token', async () => {
+    const response = await request(app).get(`/tools`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject(
+      expect.objectContaining({
+        status: expect.stringMatching('error'),
+        message: expect.stringMatching('Token not provided.'),
+      }),
+    );
+  });
+
+  it('should not be able to list all tools with a invalid token', async () => {
+    const response = await request(app).get(`/tools`).set('Authorization', `Bearer invalid.token`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject(
+      expect.objectContaining({
+        status: expect.stringMatching('error'),
+        message: expect.stringMatching('Invalid token.'),
+      }),
+    );
+  });
+
   it('should not be able to list all tools with a invalid page number', async () => {
     const response = await request(app).get('/tools?page=page').set('Authorization', `Bearer ${token}`);
 
@@ -93,7 +117,7 @@ describe('List tools', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O parâmetro 'página' precisa ser um número"),
+        message: expect.stringMatching("The 'page' param must be a number."),
       }),
     );
   });

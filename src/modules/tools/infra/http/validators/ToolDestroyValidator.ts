@@ -5,9 +5,9 @@ export default (request: Request, response: Response, next: NextFunction): Reque
   return celebrate({
     [Segments.PARAMS]: Joi.object().keys({
       id: Joi.string().uuid().required().messages({
-        'any.required': `O parâmetro 'ferramenta' não pode estar vazio`,
-        'string.empty': `O parâmetro 'ferramenta' não pode estar vazio`,
-        'string.guid': `Insira uma ferramenta válida`,
+        'any.required': `The 'tool' param mustn't be empty.`,
+        'string.empty': `The 'tool' param mustn't be empty.`,
+        'string.guid': `The 'toolId' must be a valid UUID.`,
       }),
     }),
   })(request, response, next);

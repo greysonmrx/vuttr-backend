@@ -51,7 +51,7 @@ describe('Delete user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Token não informado.'),
+        message: expect.stringMatching('Token not provided.'),
       }),
     );
   });
@@ -63,7 +63,7 @@ describe('Delete user', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Token inválido.'),
+        message: expect.stringMatching('Invalid token.'),
       }),
     );
   });

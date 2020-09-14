@@ -57,6 +57,30 @@ describe('Delete tool', () => {
     expect(response.status).toBe(204);
   });
 
+  it('should not be able to delete a tool without a token', async () => {
+    const response = await request(app).delete(`/tools/${v4()}`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject(
+      expect.objectContaining({
+        status: expect.stringMatching('error'),
+        message: expect.stringMatching('Token not provided.'),
+      }),
+    );
+  });
+
+  it('should not be able to delete a tool with a invalid token', async () => {
+    const response = await request(app).delete(`/tools/${v4()}`).set('Authorization', `Bearer invalid.token`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject(
+      expect.objectContaining({
+        status: expect.stringMatching('error'),
+        message: expect.stringMatching('Invalid token.'),
+      }),
+    );
+  });
+
   it('should not be able to delete a non-existing tool', async () => {
     const response = await request(app).delete(`/tools/${v4()}`).set('Authorization', `Bearer ${token}`);
 
@@ -64,7 +88,7 @@ describe('Delete tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Ferramenta não encontrada.'),
+        message: expect.stringMatching('Tool not found.'),
       }),
     );
   });
@@ -76,7 +100,7 @@ describe('Delete tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching('Insira uma ferramenta válida'),
+        message: expect.stringMatching("The 'toolId' must be a valid UUID."),
       }),
     );
   });

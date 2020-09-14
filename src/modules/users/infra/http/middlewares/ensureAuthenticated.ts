@@ -15,7 +15,7 @@ function ensureAuthenticated(request: Request, _response: Response, next: NextFu
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
-    throw new AppError('Token não informado.', 401);
+    throw new AppError('Token not provided.', 401);
   }
 
   const [, token] = authHeader.split(' ');
@@ -31,7 +31,7 @@ function ensureAuthenticated(request: Request, _response: Response, next: NextFu
 
     return next();
   } catch {
-    throw new AppError('Token inválido.', 401);
+    throw new AppError('Invalid token .', 401);
   }
 }
 

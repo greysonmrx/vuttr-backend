@@ -26,13 +26,13 @@ class UpdateToolService {
     const tool = await this.toolsRepository.findById(id);
 
     if (!tool) {
-      throw new AppError('Ferramenta não encontrada.', 404);
+      throw new AppError('Tool not found.', 404);
     }
 
     const toolExistsWithTitle = await this.toolsRepository.findByTitle(title.toLowerCase());
 
     if (toolExistsWithTitle && toolExistsWithTitle.id !== id) {
-      throw new AppError('Esta ferramenta já foi cadastrada.', 409);
+      throw new AppError('Tool already created.', 409);
     }
 
     const lowerCaseTags = tags.map(tag => tag.toLowerCase());

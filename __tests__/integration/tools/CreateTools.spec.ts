@@ -59,6 +59,30 @@ describe('Create tool', () => {
     );
   });
 
+  it('should not be able to create a new tool without a token', async () => {
+    const response = await request(app).post(`/tools`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject(
+      expect.objectContaining({
+        status: expect.stringMatching('error'),
+        message: expect.stringMatching('Token not provided.'),
+      }),
+    );
+  });
+
+  it('should not be able to create a new tool with a invalid token', async () => {
+    const response = await request(app).post(`/tools`).set('Authorization', `Bearer invalid.token`);
+
+    expect(response.status).toBe(401);
+    expect(response.body).toMatchObject(
+      expect.objectContaining({
+        status: expect.stringMatching('error'),
+        message: expect.stringMatching('Invalid token.'),
+      }),
+    );
+  });
+
   it('should not be able to create two tools with the same title', async () => {
     await request(app)
       .post('/tools')
@@ -92,7 +116,7 @@ describe('Create tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         status: expect.stringMatching('error'),
-        message: expect.stringMatching('Esta ferramenta já foi cadastrada.'),
+        message: expect.stringMatching('Tool already created.'),
       }),
     );
   });
@@ -118,7 +142,7 @@ describe('Create tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'título' não pode estar vazio"),
+        message: expect.stringMatching("The 'title' field mustn't be empty."),
       }),
     );
   });
@@ -144,7 +168,7 @@ describe('Create tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'link' não pode estar vazio"),
+        message: expect.stringMatching("The 'link' field mustn't be empty."),
       }),
     );
   });
@@ -169,7 +193,7 @@ describe('Create tool', () => {
     expect(response.body).toMatchObject(
       expect.objectContaining({
         error: expect.stringMatching('Bad Request'),
-        message: expect.stringMatching("O campo 'descrição' não pode estar vazio"),
+        message: expect.stringMatching("The 'description' field mustn't be empty."),
       }),
     );
   });

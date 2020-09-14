@@ -20,8 +20,24 @@ class FakeToolsRepository implements IToolsRepository {
     return findTool;
   }
 
-  public async findAll({ user_id, skip, tag, take }: IFindToolsDTO): Promise<{ tools: FakeTool[]; count: number }> {
-    const findTools = this.fakeTools.filter(tool => (tool.user_id === user_id && tag ? tool.tags.includes(tag) : true));
+  public async findAll({
+    user_id,
+    skip,
+    tag,
+    take,
+    title,
+  }: IFindToolsDTO): Promise<{ tools: FakeTool[]; count: number }> {
+    const findTools = this.fakeTools.filter(findTool => {
+      if (tag) {
+        return findTool.user_id === user_id && findTool.tags.includes(tag);
+      }
+
+      if (title) {
+        return findTool.user_id === user_id && findTool.title === title;
+      }
+
+      return findTool.user_id === user_id;
+    });
 
     const tools = findTools.slice(skip, skip + take);
 

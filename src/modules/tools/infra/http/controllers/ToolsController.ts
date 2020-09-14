@@ -9,13 +9,14 @@ import DeleteToolService from '@modules/tools/services/DeleteToolService';
 interface IListTools {
   user_id: string;
   tag?: string;
+  title?: string;
   page: number;
   limit: number;
 }
 
 class ToolsController {
   public async index(request: Request, response: Response): Promise<Response> {
-    const { page = 1, limit = 5, tag } = request.query;
+    const { page = 1, limit = 5, tag, title } = request.query;
 
     const listTools = container.resolve(ListToolsService);
 
@@ -24,6 +25,7 @@ class ToolsController {
       limit: Number(limit),
       page: Number(page),
       tag,
+      title,
     } as IListTools);
 
     return response.status(200).json({ tools, page_count, current_page, per_page, total_items, total_pages });

@@ -5,13 +5,16 @@ export default (request: Request, response: Response, next: NextFunction): Reque
   return celebrate({
     [Segments.QUERY]: Joi.object().keys({
       page: Joi.number().messages({
-        'number.base': `O parâmetro 'página' precisa ser um número`,
+        'number.base': `The 'page' param must be a number.`,
       }),
       limit: Joi.number().messages({
-        'number.base': `O parâmetro 'limite' precisa ser um número`,
+        'number.base': `The 'limit' param must be a number.`,
       }),
       tag: Joi.string().messages({
-        'string.empty': `O parâmetro 'tag' não pode estar vazio`,
+        'string.empty': `The 'tag' param mustn't be empty.`,
+      }),
+      title: Joi.string().messages({
+        'string.empty': `The 'title' param mustn't be empty.`,
       }),
     }),
   })(request, response, next);

@@ -20,11 +20,11 @@ class DeleteToolService {
     const tool = await this.toolsRepository.findById(id);
 
     if (!tool) {
-      throw new AppError('Ferramenta não encontrada.', 404);
+      throw new AppError('Tool not found.', 404);
     }
 
     if (tool.user_id !== user_id) {
-      throw new AppError('Esta ferramenta não pertence a este usuário.', 401);
+      throw new AppError("Tool doesn't belongs to this user.", 401);
     }
 
     await this.toolsRepository.delete(id);

@@ -29,10 +29,10 @@ class ToolsRepository implements IToolsRepository {
     return tool;
   }
 
-  public async findAll({ user_id, skip, take, tag }: IFindToolsDTO): Promise<{ tools: Tool[]; count: number }> {
+  public async findAll({ user_id, skip, take, tag, title }: IFindToolsDTO): Promise<{ tools: Tool[]; count: number }> {
     const query = await this.ormRepository
       .createQueryBuilder('tools')
-      .offset(skip)
+      .skip(skip)
       .take(take)
       .where('tools.user_id = :user_id', { user_id });
 
@@ -40,6 +40,8 @@ class ToolsRepository implements IToolsRepository {
 
     if (tag) {
       result = await query.andWhere(`tools.tags @> '{"${tag}"}'`).getManyAndCount();
+    } else if (title) {
+      result = await query.andWhere(`tools.title LIKE '${title}%'`).getManyAndCount();
     } else {
       result = await query.getManyAndCount();
     }

@@ -29,26 +29,26 @@ class UpdateUserService {
     const user = await this.usersRepository.findById(user_id);
 
     if (!user) {
-      throw new AppError('Usuário não encontrado.', 404);
+      throw new AppError('User not found.', 404);
     }
 
     const userWithUpdatedEmail = await this.usersRepository.findByEmail(email);
 
     if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user_id) {
-      throw new AppError('Este endereço de e-mail já está em uso. Tente outro.', 409);
+      throw new AppError('Email address already used.', 409);
     }
 
     Object.assign(user, { name, email });
 
     if (password && !current_password) {
-      throw new AppError('Você precisa informar a senha atual para criar uma nova.', 401);
+      throw new AppError('You must provide the current password to set a new password.', 401);
     }
 
     if (password && current_password) {
       const checkCurrentPassword = await this.hashProvider.compareHash(current_password, user.password);
 
       if (!checkCurrentPassword) {
-        throw new AppError('Senha incorreta.', 401);
+        throw new AppError('Incorrect password.', 401);
       }
 
       user.password = await this.hashProvider.generateHash(password);

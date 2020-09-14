@@ -85,19 +85,7 @@ const swaggerOptions: Options = {
                       },
                     ],
                   },
-                  page_count: {
-                    type: 'integer',
-                    example: 1,
-                  },
                   current_page: {
-                    type: 'integer',
-                    example: 1,
-                  },
-                  per_page: {
-                    type: 'integer',
-                    example: 5,
-                  },
-                  total_items: {
                     type: 'integer',
                     example: 1,
                   },
@@ -201,7 +189,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: "O campo 'título' não pode estar vazio",
+                    example: "The 'title' field mustn't be empty.",
                   },
                   validation: {
                     properties: {
@@ -231,7 +219,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Esta ferramenta já foi cadastrada.',
+                    example: 'Tool already created.',
                   },
                 },
               },
@@ -338,7 +326,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: "O campo 'título' não pode estar vazio",
+                    example: "The 'title' field mustn't be empty.",
                   },
                   validation: {
                     properties: {
@@ -368,7 +356,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Ferramenta não encontrada.',
+                    example: 'Tool not found.',
                   },
                 },
               },
@@ -383,7 +371,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Esta ferramenta já foi cadastrada.',
+                    example: 'Tool already created.',
                   },
                 },
               },
@@ -430,7 +418,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Insira uma ferramenta válida',
+                    example: "The 'toolId' must be a valid UUID.",
                   },
                   validation: {
                     properties: {
@@ -460,7 +448,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Ferramenta não encontrada.',
+                    example: 'Tool not found.',
                   },
                 },
               },
@@ -531,7 +519,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: "O campo 'e-mail' não pode estar vazio",
+                    example: "The 'email' field mustn't be empty.",
                   },
                   validation: {
                     properties: {
@@ -561,7 +549,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Este endereço de e-mail já está em uso. Tente outro.',
+                    example: 'Email address already used.',
                   },
                 },
               },
@@ -642,7 +630,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: "O campo 'e-mail' não pode estar vazio",
+                    example: "The 'email' field mustn't be empty.",
                   },
                   validation: {
                     properties: {
@@ -672,7 +660,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Usuário não encontrado.',
+                    example: 'User not found.',
                   },
                 },
               },
@@ -687,7 +675,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Este endereço de e-mail já está em uso. Tente outro.',
+                    example: 'Email address already used.',
                   },
                 },
               },
@@ -723,7 +711,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Usuário não encontrado.',
+                    example: 'User not found.',
                   },
                 },
               },
@@ -798,7 +786,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: "O campo 'e-mail' não pode estar vazio",
+                    example: "The 'email' field mustn't be empty.",
                   },
                   validation: {
                     properties: {
@@ -828,7 +816,7 @@ const swaggerOptions: Options = {
                   },
                   message: {
                     type: 'string',
-                    example: 'Endereço de e-mail ou senha incorretos.',
+                    example: 'Incorrect email/password combination.',
                   },
                 },
               },
