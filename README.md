@@ -13,6 +13,7 @@
 
 ## :rocket: Technologies
 
+- **Node.js** - A JavaScript runtime built on Chrome's V8 JavaScript engine.
 - **Express** — Fast, unopinionated, minimalist web framework for Node.js.
 - **BcryptJS** - Optimized bcrypt in plain JavaScript with zero dependencies.
 - **Tsyringe** - Lightweight dependency injection container for JavaScript/TypeScript.
