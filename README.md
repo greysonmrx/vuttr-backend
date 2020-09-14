@@ -13,11 +13,15 @@
 
 ## :rocket: Technologies
 
-- **Express** — Fast, unopinionated, minimalist web framework for Node.js.
+- **Node.js** - A JavaScript runtime built on Chrome's V8 JavaScript engine.
+- **TypeScript** - An open-source language which builds on JavaScript and adds static type definitions.
+- **Express** - Fast, unopinionated, minimalist web framework for Node.js.
 - **BcryptJS** - Optimized bcrypt in plain JavaScript with zero dependencies.
-- **Express Async Errors** - A dead simple ES6 async/await support hack for ExpressJS.
+- **Tsyringe** - Lightweight dependency injection container for JavaScript/TypeScript.
 - **Json Web Token** - JsonWebToken implementation for Node.js.
-- **Multer** -  Node.js middleware for handling multipart/form-data.
+- **Celebrate** - A joi validation middleware for Express.
+- **PostgreSQL** - An open source database system.
+- **Docker** - A platform built for developers to build and run applications.
 - **Typeorm** -  ORM for TypeScript and JavaScript.
 - **Jest** - Delightful JavaScript Testing.
 - **Swagger Ui** - Swagger UI is a collection of HTML, JavaScript, and CSS assets that dynamically generate beautiful documentation.
@@ -75,5 +79,6 @@ $ yarn dev:server
 ```
 
 To see the **documentation**, click here: [Documentation](http://localhost:3000/docs)<br />
+Or if you aren't running the API locally, click here: [Documentation](https://vuttr-backend-challange.herokuapp.com/docs)<br />
 
 Made with :hearts: by Greyson :wave: [See my linkedin](https://www.linkedin.com/in/greyson-mascarenhas-5a21ab1a2/)
