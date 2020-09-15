@@ -9,6 +9,6 @@ const routes = Router();
 routes.use('/users', usersRouter);
 routes.use('/sessions', sessionsRouter);
 routes.use('/tools', toolsRouter);
-routes.get('/user/:userId', (req, res) => res.send(req.params.userId));
+routes.get('/', (req, res) => res.send('Ola'));
 
 export default routes;
